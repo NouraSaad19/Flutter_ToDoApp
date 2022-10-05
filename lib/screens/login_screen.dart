@@ -10,6 +10,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 10, 95, 169),
           leading: Icon(
             Icons.menu,
           ),
@@ -81,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     Container(
                       width: double.infinity,
-                      color: Colors.blue,
+                      color: Color.fromARGB(255, 10, 95, 169),
                       child: MaterialButton(
                         onPressed: () {
                           print(emailController.text);

@@ -8,8 +8,9 @@ class ToDoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color.fromARGB(255, 0, 58, 106),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color.fromARGB(255, 10, 95, 169),
         onPressed: () {
           showModalBottomSheet(
             // isScrollControlled: true,
@@ -44,7 +45,7 @@ class ToDoScreen extends StatelessWidget {
                   ),
                   Container(
                     width: double.infinity,
-                    color: Colors.blue,
+                    color: Color.fromARGB(255, 10, 95, 169),
                     child: MaterialButton(
                       onPressed: () {
                         print("add");
@@ -57,7 +58,7 @@ class ToDoScreen extends StatelessWidget {
             ),
           );
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.add_task),
       ),
       body: Container(
         padding: EdgeInsets.only(left: 50, top: 80, right: 30, bottom: 80),
