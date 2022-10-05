@@ -1,39 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/models/task.dart';
 import 'package:todoapp/widgets/task.dart';
+import 'package:provider/provider.dart';
+import 'package:todoapp/models/task_data.dart';
 
-class Tasks extends StatefulWidget {
-  const Tasks({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<Tasks> createState() => _TasksState();
-}
-
-class _TasksState extends State<Tasks> {
-  List<TaskModel> tasks = [
-    TaskModel(taskName: "solve HW", isDone: true),
-    TaskModel(taskName: "go to shopping", isDone: false),
-    TaskModel(taskName: "learn flutter", isDone: true),
-  ];
-
+class Tasks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //ListView.builder help me to bulid infinty list from the task
-    return ListView.builder(
-      itemCount: tasks.length,
-      itemBuilder: (context, index) {
-        return Task(
-            taskName: tasks[index].taskName,
-            isCheck: tasks[index].isDone,
-            ChekboxChange: (newValue) {
-              setState(() {
-                tasks[index].doneChange();
+    return Consumer<TaskData>(builder: (context, taskData, child) {
+      //ListView.builder help me to bulid infinty list from the task
+      return ListView.builder(
+        itemCount: Provider.of<TaskData>(context).tasks.length,
+        itemBuilder: (context, index) {
+          return Task(
+              taskName: taskData.tasks[index].taskName,
+              isCheck: taskData.tasks[index].isDone,
+              ChekboxChange: (newValue) {
+                taskData.cheakTask(taskData.tasks[index]);
               });
-            });
-      },
-    );
+        },
+      );
+    });
+
     //   // ignore: prefer_const_literals_to_create_immutables
     //   children: [
     //     Task(taskName: tasks[0].taskName, isCheck: tasks[0].isDone),
