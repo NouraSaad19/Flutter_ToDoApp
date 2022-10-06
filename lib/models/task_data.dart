@@ -19,7 +19,7 @@ class TaskData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void delete(Task task) {
+  void delete(TaskModel task) {
     tasks.remove(task);
     notifyListeners();
   }
