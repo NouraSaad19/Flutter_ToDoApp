@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:todoapp/screens/to_do_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   var emailController = TextEditingController();
@@ -85,8 +86,10 @@ class LoginScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 10, 95, 169),
                       child: MaterialButton(
                         onPressed: () {
-                          print(emailController.text);
-                          print(passwordController.text);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ToDoScreen()));
                         },
                         child: const Text(
                           "Login",

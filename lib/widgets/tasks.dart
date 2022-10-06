@@ -13,11 +13,12 @@ class Tasks extends StatelessWidget {
         itemCount: Provider.of<TaskData>(context).tasks.length,
         itemBuilder: (context, index) {
           return Task(
-              taskName: taskData.tasks[index].taskName,
-              isCheck: taskData.tasks[index].isDone,
-              ChekboxChange: (newValue) {
-                taskData.cheakTask(taskData.tasks[index]);
-              });
+            taskName: taskData.tasks[index].taskName,
+            isCheck: taskData.tasks[index].isDone,
+            ChekboxChange: (newValue) {
+              taskData.cheakTask(taskData.tasks[index]);
+            },
+          );
         },
       );
     });
